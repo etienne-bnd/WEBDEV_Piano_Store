@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchPianoData() {
-    fetch('https://spreadsheets.google.com/feeds/list/1urRoHKR75u1kbWdPuAb4RlI7DLJQr8T5zNw8LB9OY10/od6/public/values?alt=json') 
+    fetch('https://spreadsheets.google.com/feeds/list/1PMO8izJgB_U0yJXa13m7l_9yUWQtkV7LMajZdZ0tuyU/od6/public/values?alt=json') 
         .then(response => response.json())
         .then(data => {
             const pianos = data.feed.entry;
