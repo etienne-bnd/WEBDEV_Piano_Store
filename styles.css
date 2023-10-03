@@ -1,21 +1,36 @@
-function renderPianos(data) {
-  const container = document.getElementById('pianos-container');
-  
-  data.forEach(piano => {
-    const pianoCard = document.createElement('div');
-    pianoCard.classList.add('piano-card');
-    pianoCard.innerHTML = `
-      <h2>${piano[0]}</h2>
-      <p>${piano[1]}</p>
-      <p>Price: $${piano[2]}</p>
-      <p>Condition: ${piano[3]}</p>
-      <p>Location: ${piano[4]}</p>
-      <img src="${piano[5]}" alt="${piano[0]}">
-    `;
-    container.appendChild(pianoCard);
-  });
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-fetch('https://script.google.com/macros/s/AKfycbyEXAMPLE/exec')
-  .then(response => response.json())
-  .then(data => renderPianos(data));
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    margin: 20px;
+}
+
+.piano-card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
