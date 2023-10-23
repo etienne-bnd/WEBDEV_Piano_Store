@@ -5,7 +5,7 @@ console.log('test')
 console.log(someUndefinedVariable.property);
 async function fetchPianoData() {
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxBeyaS_g0DP_rf05GwqJJTlHOUqSoiiHDKdNp4FQ60V8ASWFjlouQ8LsZlrl3s7Oh3vg/exec');
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzYiTPkDfCTBtBNQgsoCMyeLYY6-IDI7OCgaWtHo48puDZBjnG1Z_GalazAe-eDAzac0Q/exec');
     console.log(response) 
     const data = await response.json();
     console.log('Piano Data:', data); // Log the loaded data to the console pour tester si les donées sont bien là
