@@ -1,15 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetchPianoData();
-});
+});    
 
-function fetchPianoData() {
-    fetch('https://spreadsheets.google.com/feeds/list/1PMO8izJgB_U0yJXa13m7l_9yUWQtkV7LMajZdZ0tuyU/od6/public/values?alt=json') 
-        .then(response => response.json())
-        .then(data => {
-            const pianos = data.feed.entry;
-            renderPianoList(pianos);
-        });
+async function fetchPianoData() {
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxBeyaS_g0DP_rf05GwqJJTlHOUqSoiiHDKdNp4FQ60V8ASWFjlouQ8LsZlrl3s7Oh3vg/exec');
+    const data = await response.json();
+    console.log('Piano Data:', data); // Log the loaded data to the console pour tester si les donées sont bien là
+    // Now 'data' contains the piano information from your Google Sheet.
+    // You can use this data to update your website.
+    
+  } catch (error) {
+    console.error('Error fetching piano data:', error);
+  }
 }
+
 
 function renderPianoList(pianos) {
     const pianoListElement = document.getElementById('piano-list');
