@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetchPianoData();
 });    
-console.log(someUndefinedVariable1.property);
+console.log(someUndefinedVariablee.property);
 async function fetchPianoData() {
   try {
     const response = await fetch('https://script.google.com/macros/s/AKfycbzYiTPkDfCTBtBNQgsoCMyeLYY6-IDI7OCgaWtHo48puDZBjnG1Z_GalazAe-eDAzac0Q/exec');
@@ -12,7 +12,7 @@ async function fetchPianoData() {
     // You can use this data to update your website.
     
   } catch (error) {
-    console.error('probeme lors de la récupération de piano data:', error);
+    console.error('probleme lors de la récupération de piano data:', error);
   }
 }
 
