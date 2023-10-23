@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchPianoData();
 });    
 console.log('test')
+console.log(someUndefinedVariable.property);
 async function fetchPianoData() {
   try {
     const response = await fetch('https://script.google.com/macros/s/AKfycbxBeyaS_g0DP_rf05GwqJJTlHOUqSoiiHDKdNp4FQ60V8ASWFjlouQ8LsZlrl3s7Oh3vg/exec');
@@ -35,3 +36,4 @@ function renderPianoList(pianos) {
         pianoListElement.appendChild(pianoCard);
     });
 }
+
