@@ -111,7 +111,7 @@
           google.accounts.oauth2.revoke(token.access_token);
           gapi.client.setToken('');
           document.getElementById('content').innerText = '';
-          document.getElementById('authorize_button').innerText = 'Authoriser';
+          document.getElementById('authorize_button').innerText = 'Autoriser';
           document.getElementById('signout_button').style.visibility = 'hidden';
         }
       }
@@ -125,8 +125,8 @@
         try {
           // Fetch first 10 files
           response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-            range: 'Class Data!A2:E',
+            spreadsheetId: '1PMO8izJgB_U0yJXa13m7l_9yUWQtkV7LMajZdZ0tuyU',
+            range: 'Feuille 1 !A2:E',
           });
         } catch (err) {
           document.getElementById('content').innerText = err.message;
