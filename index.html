@@ -126,7 +126,7 @@
           // Fetch first 10 files
           response = await gapi.client.sheets.spreadsheets.values.get({
             spreadsheetId: '1PMO8izJgB_U0yJXa13m7l_9yUWQtkV7LMajZdZ0tuyU',
-            range: 'Feuille 1 !A2:E',
+            range: 'Feuille 1 !A:E',
           });
         } catch (err) {
           document.getElementById('content').innerText = err.message;
