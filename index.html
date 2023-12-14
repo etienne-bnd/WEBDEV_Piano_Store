@@ -9,19 +9,20 @@
 
     <!-- Ajouter des boutons pour initier la séquence d'autorisation et la déconnexion -->
     <button id="authorize_button" onclick="handleAuthClick()">Autoriser</button>
-    <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+    <button id="signout_button" onclick="handleSignoutClick()">Deconnection</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
-    <div id="result"></div> <!-- Ajouter un élément HTML pour afficher le résultat -->
+    <div id="result"></div> 
+    <!-- Ajoute un élément HTML pour afficher le résultat -->
 
     <script type="text/javascript">
-      // ... (le reste de votre code)
-
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
+      // ici le code Java
+      /* exported gapiLoaded */
+      /* exported gisLoaded */
+      /* exported handleAuthClick */
+      /* exported handleSignoutClick */
+      // peut-être que cela va résoudre le problème du gapi not define
 
       // Fonction pour vérifier l'accès à un sheet
       async function checkAccessToSheet() {
