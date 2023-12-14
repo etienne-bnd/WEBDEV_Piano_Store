@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetchPianoData();
+    fetchPianoData(); // test du commit git
 });    
 console.log(someUndefinedVariablee.property);
 async function fetchPianoData() {
