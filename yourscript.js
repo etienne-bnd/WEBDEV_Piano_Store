@@ -13,13 +13,11 @@ const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 let tokenClient;
 let gapiInited = false;
 let gisInited = false;
-// cela sert pour l'api google apparament ici on initie seulement les variables
 
 // Configuration de la visibilité des boutons
 document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
-// on récupère les éléments déjà créer dans le document html avec la fonction getElementById
-// on les caches avec la fontion hidden en attendant que les bibliothèques soient chargées
+
 // Fonction appelée lorsque l'API Google est chargée
 function gapiLoaded() {
   gapi.load('client', initializeGapiClient);
@@ -29,28 +27,28 @@ function gapiLoaded() {
 async function initializeGapiClient() {
   await gapi.client.init({
     apiKey: API_KEY,
-    discoveryDocs: [DISCOVERY_DOC], // on regarde ici quel document regarder
+    discoveryDocs: [DISCOVERY_DOC],
   });
-  gapiInited = true; // quand tout est bien initié on appelle la fonction qui initie les boutons
+  gapiInited = true;
   maybeEnableButtons();
 }
 
 // Fonction appelée lorsque les services d'identité Google sont chargés
 function gisLoaded() {
   tokenClient = google.accounts.oauth2.initTokenClient({
-    client_id: CLIENT_ID, // l'id de l'api google
+    client_id: CLIENT_ID,
     scope: SCOPES,
     callback: '', // défini plus tard
   });
-  gisInited = true; // quand tout est bien initié on appelle la fonction qui initie les boutons
+  gisInited = true;
   maybeEnableButtons();
 }
 
 // Activation des boutons lorsque les bibliothèques sont chargées
 function maybeEnableButtons() {
-  if (gapiInited && gisInited) { // on vérifie qu'on a bien tout initié
+  if (gapiInited && gisInited) {
     document.getElementById('authorize_button').style.visibility = 'visible';
-  } // on affiche le bouton autoriser
+  }
 }
 
 // Fonction de gestion du clic sur le bouton d'autorisation
@@ -60,7 +58,7 @@ function handleAuthClick() {
       throw resp;
     }
     document.getElementById('signout_button').style.visibility = 'visible';
-    document.getElementById('authorize_button').innerText = 'Rafraichir';
+    document.getElementById('authorize_button').innerText = 'Refresh';
     await listMajors();
   };
 
@@ -91,24 +89,23 @@ async function listMajors() {
   try {
     // Récupérer les 10 premiers fichiers
     response = await gapi.client.sheets.spreadsheets.values.get({
-      spreadsheetId: '1eDUf9k-Z2IrGzs2zzg-Hdb3MiLdZKmp4oCAcoB7RHjA',
-        // test avec un autre ID  pour sauvegarder l'ancien : 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms
-      range: 'Column!A1:C', // ici de base Class Data A2:E
+      spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+      range: 'Class Data!A2:E',
     });
   } catch (err) {
-    document.getElementById('content').innerText = err.message; // on met dans l'élément content de l'html l'erreur s'il y en a une 
+    document.getElementById('content').innerText = err.message;
     return;
   }
 
   const range = response.result;
   if (!range || !range.values || range.values.length == 0) {
-    document.getElementById('content').innerText = 'il ny a pas de valeurs';
+    document.getElementById('content').innerText = 'No values found.';
     return;
   }
 
   // Aplatir en chaîne pour l'affichage
   const output = range.values.reduce(
-    (str, row) => `${str}${row[0]}, ${row[1]}\n`, // ici de base 0 et 4 
+    (str, row) => `${str}${row[0]}, ${row[4]}\n`,
     'Name, Major:\n'
   );
   document.getElementById('content').innerText = output;
