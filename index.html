@@ -1,18 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piano Store</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique de pianos</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Piano Store</h1>
-    </header>
-    <main id="piano-list">
-        <!-- Piano data will be populated here using JavaScript -->
-    </main>
-    <script src="script.js"></script>
+
+<div id="pianos-container"></div>
+
+<script>
+  // Récupérer les données JSON
+  var pianosData = [
+    {
+      "numero": "B001",
+      "couleur": "ACAJOU ANCIEN",
+      "prix": "950,00 €",
+      "prixloc": "30,00 €",
+      "photos": ""
+    },
+    {
+      "numero": "B010",
+      "couleur": "merisier",
+      "prix": "3 000,00 €",
+      "prixloc": "65,00 €",
+      "photos": "https://photos.app.goo.gl/kG67PTMRimiCNpgC9"
+    },
+    {
+      "numero": "b011",
+      "couleur": "noir",
+      "prix": "4 000,00 €",
+      "prixloc": "80,00 €",
+      "photos": ""
+    },
+    {
+      "numero": "B012",
+      "couleur": "NOIR",
+      "prix": "1 900,00 €",
+      "prixloc": "40,00 €",
+      "photos": ""
+    }
+  ];
+
+  // Fonction pour afficher les pianos sur la page
+  function afficherPianos() {
+    var container = document.getElementById("pianos-container");
+
+    pianosData.forEach(function(piano) {
+      var pianoElement = document.createElement("div");
+      pianoElement.classList.add("piano");
+
+      pianoElement.innerHTML = `
+        <h2>${piano.numero}</h2>
+        <p>Couleur: ${piano.couleur}</p>
+        <p>Prix: ${piano.prix}</p>
+        <p>Prix de location: ${piano.prixloc}</p>
+        <p>Photos: <a href="${piano.photos}">${piano.photos}</a></p>
+      `;
+
+      container.appendChild(pianoElement);
+    });
+  }
+
+  // Appeler la fonction pour afficher les pianos au chargement de la page
+  afficherPianos();
+</script>
+
 </body>
 </html>
