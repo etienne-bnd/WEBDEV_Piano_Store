@@ -12,36 +12,38 @@
 
 <script>
   // Récupérer les données JSON
-  var pianosData = [
-    {
-      "numero": "B001",
-      "couleur": "ACAJOU ANCIEN",
-      "prix": "950,00 €",
-      "prixloc": "30,00 €",
-      "photos": ""
-    },
-    {
-      "numero": "B010",
-      "couleur": "merisier",
-      "prix": "3 000,00 €",
-      "prixloc": "65,00 €",
-      "photos": "https://photos.app.goo.gl/kG67PTMRimiCNpgC9"
-    },
-    {
-      "numero": "b011",
-      "couleur": "noir",
-      "prix": "4 000,00 €",
-      "prixloc": "80,00 €",
-      "photos": ""
-    },
-    {
-      "numero": "B012",
-      "couleur": "NOIR",
-      "prix": "1 900,00 €",
-      "prixloc": "40,00 €",
-      "photos": ""
-    }
-  ];
+  const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=UadSIcqNxA6wbqe1QahitxPeEw8iHeMiXiA7Ozp0KI5jzx9U8Su2hdH6pzho7hipiyqUCZpJFBquZC3fTKlsawuX7yW0F8fgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnDwkVCIKayn3K5IPBF5ACxOBYiXcfP1ze-ZLmG9uxNOOl2mgBpbWv3CEH8fz1sIlc4Zq-YmXTNlV7fwpEVeP0WawXi9l-AL06Nz9Jw9Md8uu&lib=ML1OtzSUDqqBv5Rhp8Ibevq8tNrNXU7ET");
+  const pianoData = await res.json();
+//   var pianosData = [
+//     {
+//       "numero": "B001",
+//       "couleur": "ACAJOU ANCIEN",
+//       "prix": "950,00 €",
+//       "prixloc": "30,00 €",
+//       "photos": ""
+//     },
+//     {
+//       "numero": "B010",
+//       "couleur": "merisier",
+//       "prix": "3 000,00 €",
+//       "prixloc": "65,00 €",
+//       "photos": "https://photos.app.goo.gl/kG67PTMRimiCNpgC9"
+//     },
+//     {
+//       "numero": "b011",
+//       "couleur": "noir",
+//       "prix": "4 000,00 €",
+//       "prixloc": "80,00 €",
+//       "photos": ""
+//     },
+//     {
+//       "numero": "B012",
+//       "couleur": "NOIR",
+//       "prix": "1 900,00 €",
+//       "prixloc": "40,00 €",
+//       "photos": ""
+//     }
+//   ];
 
   // Fonction pour afficher les pianos sur la page
   function afficherPianos() {
