@@ -74,6 +74,11 @@ body {
     text-decoration: underline;
   }
 
+  .piano img {
+    max-width: 100%; 
+    max-height: 300px;
+  }
+
   a:hover {
     color: lightblue;
   }
