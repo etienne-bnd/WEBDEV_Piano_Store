@@ -1,13 +1,15 @@
-* {
-  font-family: cursive;
-}
-/*à supprimer ou alors être plus spécifique c'est simplement pour tester tout ce que l'on peut faire 
-de plus beau */
 
 body {
-    font-family: Arial, sans-serif;
+    /* Old browsers */
+    background: #3E2723; /* Dark Sienna */
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(-45deg, #3E2723, #654321);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(-45deg, #3E2723, #654321);
+    font-family: cursive;
     margin: 0;
     padding: 0;
+
 }
 
 header {
