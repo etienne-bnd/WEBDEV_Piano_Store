@@ -10,15 +10,17 @@ async function fetchData() {
   async function afficherPianos() {
     const pianosData = await fetchData();
     var container = document.getElementById("pianos-container");
+    // on récupère l'élément piano-container du code html
   
     pianosData.forEach(function(piano) {
       // Vérifier si la ligne d'information est vide  
-      if (!piano.dispo) {
+      if ((!piano.dispo) && (piano.numero || piano.marque || piano.couleur || piano.prix || piano.prixloc || piano.photo_site || piano.photos)) {
         var pianoElement = document.createElement("div");
+        // on créer une nouvelle division
         pianoElement.classList.add("piano");
-    
+        // on lui ajoute la classe piano
         pianoElement.innerHTML = `
-          <h4>${piano.numero}</h4>
+          <h4 id='piano_num'>${piano.numero}</h4>
           <h3>piano ${piano.marque}</h3>
           <p>Couleur: ${piano.couleur}</p>
           <p>Piano à vendre: ${piano.prix}</p>
