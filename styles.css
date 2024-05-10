@@ -225,5 +225,8 @@ header a:hover {
   visibility: hidden;
 }
 
+header a {
+  font-size: 3vw; /* Taille de police relative */
+}
 
 }
