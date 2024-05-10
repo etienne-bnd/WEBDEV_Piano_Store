@@ -228,5 +228,10 @@ header a:hover {
 header a {
   font-size: 3vw; /* Taille de police relative */
 }
-
+.touchen {
+  visibility: hidden;
+}
+.touchen.milieu {
+visibility: visible;
+}
 }
