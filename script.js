@@ -21,7 +21,7 @@ async function fetchData() {
         // on lui ajoute la classe piano
         pianoElement.innerHTML = `
           <h4 id='piano_num'>${piano.numero}</h4>
-          <h3>piano ${piano.marque}</h3>
+          <h3>Piano ${piano.marque}</h3>
           `;
         if (piano.photo_site) {
           var imageContainer = document.createElement("div"); // Créer un conteneur pour l'image
