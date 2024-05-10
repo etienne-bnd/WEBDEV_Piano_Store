@@ -6,7 +6,7 @@ body {
     background: -webkit-linear-gradient(-45deg, #3E2723, #654321);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(-45deg, #3E2723, #654321);
-    font-family: Roboto;
+    font-family: Tahoma;
     margin: 0;
     padding: 0;
 
@@ -23,6 +23,9 @@ main {
     margin: 20px;
 }
 
+.bold-text  {
+  font-weight: 700;
+}
 .piano-card {
     background-color: #f4f4f4;
     border-radius: 10px;
@@ -155,19 +158,22 @@ h1 {
 
 .toucheb, header a {
   width: calc(100vw / 7); /* 7 touches blanches */
-  height: 150px;
+  height: calc(20vh);
   background-color: rgb(255, 255, 255);
-  background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(230, 230, 230, 0.8));
-  border: 4px solid #000;
+  /* background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(230, 230, 230, 0.8)); */
+  /* border: 4px solid #000; */
     border-top-left-radius: 0; /* Coin supérieur gauche : forme de rectangle */
     border-top-right-radius: 0; /* Coin supérieur droit : forme de rectangle */
   border-bottom-left-radius: 10px; /* Coin inférieur gauche : coins arrondis */
   border-bottom-right-radius: 10px; /* Coin inférieur droit : coins arrondis */
   display: flex;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.5); 
   justify-content: center;
   align-items: center;
   visibility: visible;
+  opacity: 0.9;
+  line-height: 400%;
+
 }
 
 header a {
@@ -176,11 +182,18 @@ header a {
   text-decoration: none;
   font-weight: bold; /* Mettre le texte en gras */
   text-align: center;
+  font-family: "Orbitron", sans-serif;
+  background: white;
+  transition: background 0.5s, background-color 0.5s;
+  overflow: hidden; /* Masquer tout contenu dépassant des limites de l'élément */
+  min-width: 100px;
+  min-height: 60px;
+  font-size: 1vw; /* Taille de police relative */
 }
 
 .touchen {
   width: calc(100vw / 14); /* 14 touches noires */
-  height: 140px;
+  height: calc(18vh);
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0.1, 0.1, 0.1, 0.4));
   border-top-left-radius: 0; /* Coin supérieur gauche : forme de rectangle */
   border-top-right-radius: 0; /* Coin supérieur droit : forme de rectangle */
@@ -191,11 +204,17 @@ header a {
   align-items: center;
   visibility: visible;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
-  transition: background 0.5s,
+
 }
 
 header a:hover {
-  background: linear-gradient(to top, rgb(108, 108, 108), rgba(255, 255, 255, 1)); /* Dégradé blanc pour le survol */
+  background: linear-gradient(to top, rgb(167, 167, 167), rgba(255, 255, 255, 1)); /* Dégradé blanc pour le survol */
+  background-color: #a6a6a6;
 
+}
+
+.touchen.milieu {
+  min-width: 30px;
+  min-height: 50px;
 
 }

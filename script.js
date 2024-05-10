@@ -23,8 +23,8 @@ async function fetchData() {
           <h4 id='piano_num'>${piano.numero}</h4>
           <h3>piano ${piano.marque}</h3>
           <p>Couleur: ${piano.couleur}</p>
-          <p>Piano à vendre: ${piano.prix}</p>
-          <p>Prix de location: ${piano.prixloc}</p>
+          <p>Piano à vendre: <span class='bold-text'>${piano.prix}</span></p>
+          <p>Prix de location: <span class='bold-text'> ${piano.prixloc}</span></p>
           `;
           if (piano.photo_site) {
             var imageContainer = document.createElement("div"); // Créer un conteneur pour l'image
