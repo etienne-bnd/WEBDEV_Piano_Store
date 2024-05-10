@@ -188,7 +188,7 @@ header a {
   overflow: hidden; /* Masquer tout contenu dépassant des limites de l'élément */
   min-width: 100px;
   min-height: 60px;
-  font-size: 1vw; /* Taille de police relative */
+  font-size: 1.2vw; /* Taille de police relative */
 }
 
 .touchen {
@@ -216,5 +216,14 @@ header a:hover {
 .touchen.milieu {
   min-width: 30px;
   min-height: 50px;
+
+}
+
+@media screen and (max-width: 768px) {
+  /* Styles pour les appareils mobiles */
+.toucheb {
+  visibility: hidden;
+}
+
 
 }
