@@ -23,6 +23,17 @@ main {
     margin: 20px;
 }
 
+#chargement {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  transition: opacity 1s ease-out; /* Ajoute une transition d'opacité de 0.5 seconde */
+}
+
+#chargement.hidden {
+  opacity: 0; /* Baisse l'opacité à 0 lorsqu'il est masqué */
+}
+
 .bold-text  {
   font-weight: 700;
 }
@@ -45,59 +56,60 @@ p {
 h1 {
     font-size: 2em;
 }
-  
-  #pianos-container {
-    /* max-width: 800px; */
-    margin: 0 auto;
-    margin-top: 220px; /* à  ajouter à cause de la barre de menu qui 
-    suit l'utilisateur */
-    padding: 20px;
-    display: flex; /* Utilisation de flexbox permet d'avoir les éléments de la 
-    même taille sur une même ligne */
-    flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-  }
-  
-  .piano {
-    position: relative;
-    display: inline-block;
-    border: 5px solid #8B4513;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px;
-    background:#D2B48C;
-    text-align: center; /* Centrer le texte */
-    height: 521px;
-    width: 400px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
-    /* 5px de décalage horizontal, 5px de décalage vertical, flou de 10px, couleur de l'ombre avec une opacité de 0.5 */    
-
-  }
-  
-  .piano h2 {
-    font-size: 24px;
-    margin-top: 0;
-  }
-
-  .piano h3 {
-    font-family: 'Space Mono', sans-serif;
-  }
-  
-  .piano p {
-    margin: 5px 0;
-  }
-  
-
-  .piano img {
-    max-width: 100%; 
-    max-height: 300px;
-  }
 
 
-  img {
-    border-radius: 5px;
-  }
+#pianos-container {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  margin-top: 220px; /* à  ajouter à cause de la barre de menu qui 
+  suit l'utilisateur */
+  padding: 20px;
+  display: flex; /* Utilisation de flexbox permet d'avoir les éléments de la 
+  même taille sur une même ligne */
+  flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+}
+  
+.piano {
+  position: relative;
+  display: inline-block;
+  border: 5px solid #8B4513;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  background:#D2B48C;
+  text-align: center; /* Centrer le texte */
+  height: 521px;
+  width: 400px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+  /* 5px de décalage horizontal, 5px de décalage vertical, flou de 10px, couleur de l'ombre avec une opacité de 0.5 */    
+
+}
+
+.piano h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.piano h3 {
+  font-family: 'Space Mono', sans-serif;
+}
+
+.piano p {
+  margin: 5px 0;
+}
+
+
+.piano img {
+  max-width: 100%; 
+  max-height: 300px;
+}
+
+
+img {
+  border-radius: 5px;
+}
 
 
   .lien_photo {

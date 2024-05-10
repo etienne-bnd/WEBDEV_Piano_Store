@@ -22,35 +22,52 @@ async function fetchData() {
         pianoElement.innerHTML = `
           <h4 id='piano_num'>${piano.numero}</h4>
           <h3>piano ${piano.marque}</h3>
-          <p>Couleur: ${piano.couleur}</p>
+          `;
+        if (piano.photo_site) {
+          var imageContainer = document.createElement("div"); // Créer un conteneur pour l'image
+          imageContainer.classList.add("image-container");
+
+
+          var imageElement = document.createElement("img");
+          imageElement.src = piano.photo_site;
+          imageElement.alt = "Photo du piano à louer";
+          imageContainer.appendChild(imageElement); // Ajouter l'image dans le conteneur
+          pianoElement.appendChild(imageContainer); // Ajouter le conteneur dans l'élément piano
+        }
+        pianoElement.innerHTML += `
           <p>Piano à vendre: <span class='bold-text'>${piano.prix}</span></p>
           <p>Prix de location: <span class='bold-text'> ${piano.prixloc}</span></p>
+          <p>Couleur: ${piano.couleur}</p>
           `;
-          if (piano.photo_site) {
-            var imageContainer = document.createElement("div"); // Créer un conteneur pour l'image
-            imageContainer.classList.add("image-container");
-
-            var imageElement = document.createElement("img");
-            imageElement.src = piano.photo_site;
-            imageElement.alt = "Photo du piano à louer";
-            imageContainer.appendChild(imageElement); // Ajouter l'image dans le conteneur
-            pianoElement.appendChild(imageContainer); // Ajouter le conteneur dans l'élément piano
-        }
-
         if (piano.photos) {
-            var linkElement = document.createElement("a");
-            linkElement.href = piano.photos;
-            linkElement.textContent = "voir plus de photos";
-            linkElement.classList.add("lien_photo"); // Ajout de la classe "lien_photo"
-            var paragraphElement = document.createElement("p");
-            paragraphElement.appendChild(linkElement);
-            pianoElement.appendChild(paragraphElement);
+          var linkElement = document.createElement("a");
+          linkElement.href = piano.photos;
+          linkElement.textContent = "voir plus de photos";
+          linkElement.classList.add("lien_photo"); // Ajout de la classe "lien_photo"
+          var paragraphElement = document.createElement("p");
+          paragraphElement.appendChild(linkElement);
+          pianoElement.appendChild(paragraphElement);
         }
 
         container.appendChild(pianoElement);
     }
     });
   }
-  
+
   // Appeler la fonction pour afficher les pianos au chargement de la page
-  afficherPianos();
+afficherPianos();
+
+
+// Fonction pour masquer le GIF une fois que la fonction est terminée
+function masquerGIF() {
+  var gifElement = document.getElementById('chargement');
+  gifElement.classList.add('hidden'); // Ajoute la classe .hidden pour masquer en douceur
+  setTimeout(function() {
+    gifElement.style.display = 'none'; // Masque l'élément GIF après un délai de 2 secondes
+  }, 1000); // 2000 millisecondes = 2 secondes
+}
+
+// Lorsque la fonction afficherPianos est terminée, masquer le GIF
+window.addEventListener('load', function() {
+  setTimeout(masquerGIF, 2000);
+});
