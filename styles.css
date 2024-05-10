@@ -6,7 +6,7 @@ body {
     background: -webkit-linear-gradient(-45deg, #3E2723, #654321);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(-45deg, #3E2723, #654321);
-    font-family: Tahoma;
+    font-family: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
 
@@ -79,6 +79,10 @@ h1 {
     font-size: 24px;
     margin-top: 0;
   }
+
+  .piano h3 {
+    font-family: 'Space Mono', sans-serif;
+  }
   
   .piano p {
     margin: 5px 0;
@@ -99,11 +103,11 @@ h1 {
   .lien_photo {
     /* Style du lien */
     display: inline-block;
+    font-family: Orbitron, sans-serif;
     padding: 10px 20px;
     background-color: #8B4513; /* Marron foncé */
     color: #FFF; /* Texte blanc */
     text-decoration: none; /* Supprimer le soulignement */
-    /* font-family: Georgia, serif; Police de caractères */
     font-size: 16px;
     border: 2px solid #8B4513; /* Bordure marron foncé */
     border-radius: 5px; /* Coins arrondis */
@@ -131,6 +135,7 @@ h1 {
   left: 20px;
   top: 0;
   text-align:left;
+  font-family: 'Space Mono', sans-serif;
   padding: 1px 2px;
   background-color: #654321; /* Marron foncé */
   color: #FFF; /* Texte blanc */
@@ -188,6 +193,7 @@ header a {
   overflow: hidden; /* Masquer tout contenu dépassant des limites de l'élément */
   min-width: 100px;
   min-height: 60px;
+  /* max-width: 100px; */
   font-size: 1.2vw; /* Taille de police relative */
 }
 
