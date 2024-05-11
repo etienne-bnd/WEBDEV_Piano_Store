@@ -56,18 +56,3 @@ async function fetchData() {
 
   // Appeler la fonction pour afficher les pianos au chargement de la page
 afficherPianos();
-
-
-// Fonction pour masquer le GIF une fois que la fonction est terminée
-function masquerGIF() {
-  var gifElement = document.getElementById('chargement');
-  gifElement.classList.add('hidden'); // Ajoute la classe .hidden pour masquer en douceur
-  setTimeout(function() {
-    gifElement.style.display = 'none'; // Masque l'élément GIF après un délai de 2 secondes
-  }, 1000); // 2000 millisecondes = 2 secondes
-}
-
-// Lorsque la fonction afficherPianos est terminée, masquer le GIF
-window.addEventListener('load', function() {
-  setTimeout(masquerGIF, 2000);
-});
