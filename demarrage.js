@@ -41,6 +41,50 @@ function write_header() {
 
     }
 
+
+function write_header_tel() {
+    // Sélectionner l'élément <header> avec la classe "clavier-piano"
+    const headerElement = document.querySelector('header.clavier-piano');
+
+    // Définir le code HTML à insérer
+    const htmlContent = `
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <a href="index.html">
+        CATALOGUE<br>
+        DES PIANOS</a>
+        <div class="touchen milieu"></div>
+        <a href="a_propos.html">
+        LOCATION
+        VENTE
+        ACCORD
+        DEBARRAS
+        </a>
+        <div class="touchen milieu"></div>
+        <a href="contact.html">CONTACT</a>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+        <div class="toucheb"></div>
+        <div class="touchen"></div>
+    `;
+
+    // Insérer le code HTML dans l'élément <header>
+    headerElement.innerHTML = htmlContent;
+
+    }
+
 function write_chargement() {
     const pianoContainer = document.getElementById('pianos-container');
     const htmlContent = `
@@ -59,8 +103,18 @@ function masquerGIF() {
     }, 1000); // 2000 millisecondes = 2 secondes
   }
   
+// Vérifier si l'appareil est un téléphone
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    write_header_tel();
+    console.log("C'est un téléphone !");
+    // Exécuter le script spécifique aux téléphones ici
+} else {
+    write_header();
+    console.log("Ce n'est pas un téléphone !");
+    // Exécuter le script pour les autres appareils ici
+}
 
-write_header();
+
 write_chargement();
 
   // Lorsque la fonction afficherPianos est terminée, masquer le GIF
