@@ -7,33 +7,34 @@ function write_header() {
         <div class="touchen"></div>
         <div class="toucheb"></div>
         <div class="touchen"></div>
-        <div class="toucheb"></div>
+        <a href="accord.html">
+        ACCORD DE PIANO
+        </a>
         <div class="touchen"></div>
-        <div class="toucheb"></div>
-        <div class="touchen"></div>
-        <div class="toucheb"></div>
+        <a href="debarras.html">
+        DEBARRAS DE PIANO
+        </a>
         <div class="touchen"></div>
         <a href="index.html">
         CATALOGUE<br>
         DES PIANOS</a>
         <div class="touchen milieu"></div>
-        <a href="a_propos.html">
-        LOCATION
+        <a href="achatlocation.html">
+        ACHAT
         VENTE
-        ACCORD
-        DEBARRAS
+        LOCATION
+        DE PIANO
         </a>
         <div class="touchen milieu"></div>
         <a href="contact.html">CONTACT</a>
         <div class="touchen"></div>
-        <div class="toucheb"></div>
+        <a href="a_propos.html">
+        A PROPOS
+        </a>
         <div class="touchen"></div>
         <div class="toucheb"></div>
         <div class="touchen"></div>
-        <div class="toucheb"></div>
-        <div class="touchen"></div>
-        <div class="toucheb"></div>
-        <div class="touchen"></div>
+
     `;
 
     // Insérer le code HTML dans l'élément <header>
