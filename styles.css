@@ -28,6 +28,7 @@ main {
   height: 200px;
   opacity: 1;
   transition: opacity 1s ease-out; /* Ajoute une transition d'opacité de 0.5 seconde */
+  box-shadow: none;
 }
 
 #chargement.hidden {
