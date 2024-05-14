@@ -51,18 +51,36 @@ h2 {
 }
 
 p {
-    margin: 0;
+    margin: 3px;
+
 }
 
-h1 {
-    font-size: 2em;
+.normal {
+  font-weight: normal;
+}
+
+.conteneur-texte h1 {
+    display: table; /* Passer à un affichage en bloc pour occuper toute la largeur */
+    text-align: center;
+    font-family: 'Space Mono', sans-serif;
+    padding: 10px 20px;
+    /* margin: 2px; */
+    margin: 0 auto; /* Centrage horizontal */
+    background-color: #8B4513; /* Marron foncé */
+    color: #FFF; /* Texte blanc */
+    /* font-family: Georgia, serif; Police de caractères */
+    /* font-size: 16px; */
+    border: 2px solid #8B4513; /* Bordure marron foncé */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+
 }
 
 
 #pianos-container {
   /* max-width: 800px; */
   margin: 0 auto;
-  margin-top: 220px; /* à  ajouter à cause de la barre de menu qui 
+  margin-top: calc(25vh); /* à  ajouter à cause de la barre de menu qui 
   suit l'utilisateur */
   padding: 20px;
   display: flex; /* Utilisation de flexbox permet d'avoir les éléments de la 
@@ -93,6 +111,7 @@ h1 {
   margin-top: 0;
 }
 
+/*C'est la marque donc le nom du piano*/
 .piano h3 {
   font-family: 'Space Mono', sans-serif;
 }
@@ -100,7 +119,6 @@ h1 {
 .piano p {
   margin: 5px 0;
 }
-
 
 .piano img {
   max-width: 100%; 
@@ -115,8 +133,12 @@ img {
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.conteneur-texte img {
+  
+}
 
-  .lien_photo {
+
+  .lien_photo, .bouton {
     /* Style du lien */
     display: inline-block;
     font-family: Orbitron, sans-serif;
@@ -133,14 +155,18 @@ img {
     /* Effet au survol */
   
 }
-
-.lien_photo:hover {
+.bouton {
+  display: table; /* Passer à un affichage en bloc pour occuper toute la largeur */
+  margin: 0 auto; /* Centrage horizontal */
+  
+}
+.lien_photo:hover, .bouton:hover {
     background-color: #D2B48C; /* Marron plus clair au survol */
     color: #000; /* Texte noir au survol */
 }
 
 
-.lien_photo:active {
+.lien_photo:active, .bouton:active {
   background-color: #A0522D; /* Nouvelle couleur lorsque le bouton est cliqué */
   color: #000; /* Texte noir */
 }
@@ -256,16 +282,23 @@ header a:active {
   justify-content: space-around;
   position: relative;
   border: 5px solid #8B4513;
+  width: 80%;
   border-radius: 15px;
   padding: 20px;
   margin: 20px;
   background:#D2B48C;
-  text-align: center; /* Centrer le texte */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
   text-align: justify; /* Alignement du texte à gauche */
   /* 5px de décalage horizontal, 5px de décalage vertical, flou de 10px, couleur de l'ombre avec une opacité de 0.5 */    
 }
 
+.conteneur-texte p, .conteneur-texte h3, .conteneur-texte h4 {
+  text-align: left;
+}
+
+.text {
+  justify-content: space-around;
+}
 
 @media screen and (max-width: 768px) {
     /* Styles pour les appareils mobiles */
