@@ -1,7 +1,8 @@
 async function fetchData() {
     // Récupérer les données JSON
     console.log("v4");
-    const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=kbYKx7JtNWNE1Z8VmgtFgIYanV4xXeeV-SlXrKeoOdPqtjl_Pvnby5K-6JGa2ekhKOJRgOFHrtyrAQPeWSJog_zZ3Ed-8Yhkm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCLmOJ7fQgJOfBHICit4qpEmRHCp4mVnFfJi0LmdnuunsMhM-h10RfQiQGq1TLOo7biArXcshSGuLcP2bvRXVA8hpIpPm45QStz9Jw9Md8uu&lib=Ml1e-lb1qAMfOSe-7BliAWq8tNrNXU7ET");
+    const res = await fetch("https://script.googleusercontent.com/macros/echo?user_content_key=uS3aUWULRcdE7mWJpII_3FxDlg8fEso1xv_9XP0_EuaJZG0hyy6Fa-pCWR5LpSsfnK_Tz1S0ifyaLm86If8rlrUlm_arS_T_m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAlkVzLCpd8V8KSfuj7mmgUO19QPE5e8A05lXM5lJ3bNeWbqBWH_ufLjU5O3PvUpE-yRqKmp8CDP24fNIgUQpE4RC947kkV0xtz9Jw9Md8uu&lib=Ml1e-lb1qAMfOSe-7BliAWq8tNrNXU7ET");
+    // le lien est à changer si on change le déployement de l'app script
     const json = await res.json();
     return json.data; // Accéder à la propriété 'data'
   }
@@ -14,7 +15,7 @@ async function fetchData() {
   
     pianosData.forEach(function(piano) {
       // Vérifier si la ligne d'information est vide  
-      if ((!piano.dispo) && (piano.numero || piano.marque || piano.couleur || piano.prix || piano.prixloc || piano.photo_site || piano.photos)) {
+      if ((!piano.dispo) && (piano.numero || piano.marque || piano.couleur|| piano.prix || piano.prixloc || piano.photo_site || piano.photos)) {
         var pianoElement = document.createElement("div");
         // on créer une nouvelle division
         pianoElement.classList.add("piano");
@@ -39,6 +40,20 @@ async function fetchData() {
           <p>Prix de location: <span class='bold-text'> ${piano.prixloc}</span></p>
           <p>Couleur: ${piano.couleur}</p>
           `;
+
+        if (piano.profondeur && piano.largeur)
+          {
+            if (piano.hauteur) {
+              pianoElement.innerHTML += `          
+              <p>Dimensions: <span class='bold-text'>${piano.hauteur}</span>x<span class='bold-text'>${piano.profondeur}</span>x<span class='bold-text'>${piano.largeur} cm </span></p>
+            `;
+            }
+            else {
+              pianoElement.innerHTML += ` 
+              <p>Dimensions: <span class='bold-text'>${piano.profondeur}</span>x<span class='bold-text'>${piano.largeur} cm </span></p>
+            `;
+            }
+          }
         if (piano.photos) {
           var linkElement = document.createElement("a");
           linkElement.href = piano.photos;

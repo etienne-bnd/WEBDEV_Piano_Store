@@ -15,7 +15,7 @@ function write_header() {
         DEBARRAS DE PIANO
         </a>
         <div class="touchen"></div>
-        <a href="index.html">
+        <a href="piano-a-louer.html">
         CATALOGUE<br>
         DES PIANOS</a>
         <div class="touchen milieu"></div>
