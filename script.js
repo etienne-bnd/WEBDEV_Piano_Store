@@ -87,6 +87,7 @@ async function afficherPianos() {
           var linkElement = document.createElement("a");
           linkElement.href = piano.photos;
           linkElement.textContent = "plus de photos du piano";
+          linkElement.textContent = "plus de photos du piano";
           linkElement.classList.add("lien_photo"); // Ajout de la classe "lien_photo"
           var paragraphElement = document.createElement("p");
           paragraphElement.appendChild(linkElement);
