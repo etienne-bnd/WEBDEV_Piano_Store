@@ -86,24 +86,40 @@ function write_header_tel() {
 
     }
 
-function write_chargement() {
-    const pianoContainer = document.getElementById('pianos-container');
-    const htmlContent = `
-    <img id="chargement" src="main_chargement.gif" alt="Chargement..." />
-    `;
-    pianoContainer.innerHTML += htmlContent;
-}
+async function creation_bouton_marque() {
+    // Attendre la résolution de la promesse pianofirst (si elle n'est pas déjà résolue)
+    let pianosData = await pianofirst; 
+    var listing = document.getElementById("MarquePicker");
+    // Créer une liste pour stocker les marques de pianos
+    let marques = [];
 
-// Fonction pour masquer le GIF une fois que la fonction est terminée
-function masquerGIF() {
-    var gifElement = document.getElementById('chargement');
-    gifElement.classList.add('hidden'); 
-    // Ajoute la classe .hidden pour masquer en douceur
-    setTimeout(function() {
-      gifElement.style.display = 'none'; // Masque l'élément GIF après un délai de 2 secondes
-    }, 1000); // 2000 millisecondes = 2 secondes
-  }
-  
+    // Parcourir tous les pianos
+    pianosData.forEach(function(piano) {
+        // Vérifier si la marque du piano existe et n'est pas déjà dans la liste
+        if (piano.marque && !marques.includes(piano.marque) && (!piano.dispo)) {
+            // Ajouter la marque à la liste si elle n'est pas déjà présente
+            marques.push(piano.marque);
+            listing.innerHTML+=` <option value="${piano.marque}">${piano.marque}</option>`;
+        }
+    });
+}
+async function creation_bouton_couleur() {
+    // Attendre la résolution de la promesse pianofirst (si elle n'est pas déjà résolue)
+    let pianosData = await pianofirst; 
+    var listing = document.getElementById("colorPicker");
+    // Créer une liste pour stocker les marques de pianos
+    let couleurs = [];
+
+    // Parcourir tous les pianos
+    pianosData.forEach(function(piano) {
+        // Vérifier si la marque du piano existe et n'est pas déjà dans la liste
+        if (piano.couleur && !couleurs.includes(piano.couleur) && !piano.dispo) {
+            // Ajouter la marque à la liste si elle n'est pas déjà présente
+            couleurs.push(piano.couleur);
+            listing.innerHTML+=` <option value="${piano.couleur}">${piano.couleur}</option>`;
+        }
+    });
+}
 // Vérifier si l'appareil est un téléphone
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     write_header_tel();
@@ -115,11 +131,6 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     // Exécuter le script pour les autres appareils ici
 }
 
-
-write_chargement();
-
-  // Lorsque la fonction afficherPianos est terminée, masquer le GIF
-window.addEventListener('load', function() {
-    masquerGIF();
-    // setTimeout(masquerGIF, 2000);
-});
+creation_bouton_marque();
+creation_bouton_couleur();
+console.log("la fonction a fonctionné");

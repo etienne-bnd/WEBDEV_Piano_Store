@@ -8,11 +8,25 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Space+Mono&display=swap" rel="stylesheet">
    <!-- c'est pour la police d'écriture orbitron -->
+   <script src="script.js" defer></script>
+   <script src="demarrage.js" defer></script>
 </head>
+
+
 <body>
   <header class="clavier-piano"></header>
+  <!-- <button id="bouton_select" class="bouton" onclick="afficherPianosNoir()">Cliquez-moi</button> -->
+  <div id="Barre_de_selection">
+    <select id="colorPicker">
+      <option value="TOUT">Toutes couleurs</option>
+    </select>
+    <select id="MarquePicker">
+      <option value="TOUT">Toutes marques</option>
+    </select>
+  </div>
+  <!-- appelle la fonction javascript  -->
   <div id="pianos-container"></div>
-  <script src="demarrage.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="demarrage.js"></script>
+
 </body>
 </html>

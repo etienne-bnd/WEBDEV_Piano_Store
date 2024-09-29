@@ -76,11 +76,23 @@ p {
 
 }
 
+#Barre_de_selection{
+  margin: 0 auto;
+  margin-top: calc(25vh); /* à  ajouter à cause de la barre de menu qui 
+  suit l'utilisateur */
+  display: flex; /* pour avoir les différentes choses que l'on peut choisir dans la barre de sélection qui 
+  se mettent sur une même ligne */
+  align-items: center; /* Centre verticalement */
+  justify-content: center;
+  flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
+  
+}
 
 #pianos-container {
   /* max-width: 800px; */
   margin: 0 auto;
-  margin-top: calc(25vh); /* à  ajouter à cause de la barre de menu qui 
+  /* margin-top: calc(25vh);  */
+  /* à  ajouter à cause de la barre de menu qui 
   suit l'utilisateur */
   padding: 20px;
   display: flex; /* Utilisation de flexbox permet d'avoir les éléments de la 
@@ -138,7 +150,7 @@ img {
 }
 
 
-  .lien_photo, .bouton {
+  .lien_photo, .bouton, select{
     /* Style du lien */
     display: inline-block;
     font-family: Orbitron, sans-serif;
@@ -155,18 +167,26 @@ img {
     /* Effet au survol */
   
 }
-.bouton {
-  display: table; /* Passer à un affichage en bloc pour occuper toute la largeur */
+.bouton, select{
+  display: table; /* Passer à un affichage en bloc pour occuper toute la largeur*/
   margin: 0 auto; /* Centrage horizontal */
   
 }
-.lien_photo:hover, .bouton:hover {
+
+select{
+  /* max-width: 800px; */
+  padding: 20px;
+  margin: 20px;
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+}
+.lien_photo:hover, .bouton:hover, select:hover{
     background-color: #D2B48C; /* Marron plus clair au survol */
     color: #000; /* Texte noir au survol */
 }
 
 
-.lien_photo:active, .bouton:active {
+.lien_photo:active, .bouton:active, select:active{
   background-color: #A0522D; /* Nouvelle couleur lorsque le bouton est cliqué */
   color: #000; /* Texte noir */
 }
@@ -299,6 +319,37 @@ header a:active {
 .text {
   justify-content: space-around;
 }
+
+/* A voir s'il faut l'enlever déjà un truc dans le select */
+
+
+/* Ajouter un style pour la flèche du menu déroulant */
+#colorPicker::-ms-expand {
+  display: none; /* Masquer la flèche pour Internet Explorer */
+}
+
+/* Style des options */
+  option {
+  font-family: Orbitron, sans-serif;
+  background-color: #D2B48C; /* Marron plus clair au survol */
+  color: #000; /* Couleur du texte */
+  padding: 10px;
+  font-size: 16px;
+}
+option:hover{
+  background-color: #845313; /* Marron plus clair au survol */
+}
+/* Effet au survol (pas possible sur option, donc uniquement sur le select) */
+#colorPicker:hover {
+  background-color: #D2B48C; /* Marron plus clair au survol */
+  color: #000000;
+}
+
+/* Style au focus */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5); /* Ombre au focus */
+
 
 @media screen and (max-width: 768px) {
     /* Styles pour les appareils mobiles */
