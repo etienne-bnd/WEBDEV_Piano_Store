@@ -364,7 +364,7 @@ option:hover{
 select:focus {
   outline: none;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5); /* Ombre au focus */
-
+}
 
 @media screen and (max-width: 768px) {
     /* Styles pour les appareils mobiles */
@@ -373,7 +373,7 @@ select:focus {
   }
 
   header a {
-    font-size: 500vw; /* Taille de police relative */
+    font-size: 3vw; /* Taille de police relative */
   }
 
   .touchen {
