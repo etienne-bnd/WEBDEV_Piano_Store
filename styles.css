@@ -88,7 +88,22 @@ p {
   
 }
 
-#pianos-container {
+.pianos-container {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  margin-top: calc(25vh); /* à  ajouter à cause de la barre de menu qui 
+  suit l'utilisateur */
+  /* margin-top: calc(25vh);  */
+  /* à  ajouter à cause de la barre de menu qui 
+  suit l'utilisateur */
+  padding: 20px;
+  display: flex; /* Utilisation de flexbox permet d'avoir les éléments de la 
+  même taille sur une même ligne */
+  flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+
+}#pianos-container {
   /* max-width: 800px; */
   margin: 0 auto;
   /* margin-top: calc(25vh);  */
