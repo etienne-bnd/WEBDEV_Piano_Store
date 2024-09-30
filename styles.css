@@ -168,7 +168,7 @@ img {
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.conteneur-texte img {
+.conteneur-texte{
   
 }
 
@@ -383,7 +383,7 @@ select:focus {
 @media screen and (max-width: 768px) {
     /* Styles pour les appareils mobiles */
 
-  .pianos-container {
+  .conteneur-texte {
     flex-direction: column;   /* Aligne les éléments verticalement */
     align-items: center;      /* Centre les éléments horizontalement (facultatif) */
     justify-content: flex-start; /* Aligne les éléments en haut du conteneur */
