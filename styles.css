@@ -382,6 +382,14 @@ select:focus {
 
 @media screen and (max-width: 768px) {
     /* Styles pour les appareils mobiles */
+
+  .pianos-container {
+    flex-direction: column;   /* Aligne les éléments verticalement */
+    align-items: center;      /* Centre les éléments horizontalement (facultatif) */
+    justify-content: flex-start; /* Aligne les éléments en haut du conteneur */
+  
+
+  }
   .toucheb {
     visibility: hidden;
   }
