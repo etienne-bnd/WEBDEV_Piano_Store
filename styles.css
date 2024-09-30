@@ -78,7 +78,7 @@ p {
 
 #Barre_de_selection{
   margin: 0 auto;
-  margin-top: calc(25vh); /* à  ajouter à cause de la barre de menu qui 
+  margin-top: calc(27vh); /* à  ajouter à cause de la barre de menu qui 
   suit l'utilisateur */
   max-width: 800px; /* Limite la largeur maximale du conteneur */
   display: flex; /* pour avoir les différentes choses que l'on peut choisir dans la barre de sélection qui 
@@ -195,7 +195,7 @@ img {
 select{
   /* max-width: 800px; */
   padding: 20px;
-  margin: 20px;
+  margin: 0px 20px; /* Haut et bas : 10px, gauche et droite : 20px */
   align-items: center; /* Centre verticalement */
   justify-content: center; /* Centre horizontalement */
   flex: 2; /* Permet aux éléments d'occuper le même espace horizontalement */
