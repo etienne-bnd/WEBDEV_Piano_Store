@@ -346,6 +346,7 @@ header a:active {
   align-items: center;
   justify-content: space-around;
   position: relative;
+  overflow: hidden;
   border: 5px solid #8B4513;
   width: 80%;
   border-radius: 15px;
