@@ -373,7 +373,7 @@ select:focus {
   }
 
   header a {
-    font-size: 3vw; /* Taille de police relative */
+    font-size: 5vw; /* Taille de police relative */
   }
 
   .touchen {
