@@ -124,9 +124,10 @@ p {
   border: 5px solid #8B4513;
   border-radius: 15px;
   padding: 20px;
+  padding-top: 10px;
   margin: 20px;
   background:#D2B48C;
-  text-align: center; /* Centrer le texte */
+  text-align: left; /* a gauche pour le numéro */
   height: 521px;
   width: 400px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
@@ -142,6 +143,8 @@ p {
 /*C'est la marque donc le nom du piano*/
 .piano h3 {
   font-family: 'Space Mono', sans-serif;
+  margin: 5px;
+  margin-top: 0px;
 }
 
 .piano p {
@@ -209,14 +212,12 @@ select{
 }
 
 #piano_num {
-  display: inline;
-  position: absolute;
-  left: 20px;
-  top: 0;
-  margin: 100px;
+  display: inline-block;
+  margin: 0; /* Supprime toute marge externe */
+  /* margin: 100px; */
   text-align:left;
   font-family: 'Space Mono', sans-serif;
-  padding: 1px 2px;
+  padding: 1px 1px;
   background-color: #654321; /* Marron foncé */
   color: #FFF; /* Texte blanc */
   /* font-family: Georgia, serif; Police de caractères */
@@ -224,6 +225,12 @@ select{
   border: 2px solid #8B4513; /* Bordure marron foncé */
   border-radius: 5px; /* Coins arrondis */
 }
+.corpscasepiano {
+  text-align:center;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* HEADER  */
 
