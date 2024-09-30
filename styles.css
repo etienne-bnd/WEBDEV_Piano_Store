@@ -80,9 +80,10 @@ p {
   margin: 0 auto;
   margin-top: calc(25vh); /* à  ajouter à cause de la barre de menu qui 
   suit l'utilisateur */
+  max-width: 800px; /* Limite la largeur maximale du conteneur */
   display: flex; /* pour avoir les différentes choses que l'on peut choisir dans la barre de sélection qui 
   se mettent sur une même ligne */
-  align-items: center; /* Centre verticalement */
+  align-items: stretch; /* Centre verticalement */
   justify-content: center;
   flex-wrap: wrap; /* Permettre le retour à la ligne des éléments */
   
@@ -194,6 +195,7 @@ select{
   margin: 20px;
   align-items: center; /* Centre verticalement */
   justify-content: center; /* Centre horizontalement */
+  flex: 2; /* Permet aux éléments d'occuper le même espace horizontalement */
 }
 .lien_photo:hover, .bouton:hover, select:hover{
     background-color: #D2B48C; /* Marron plus clair au survol */
