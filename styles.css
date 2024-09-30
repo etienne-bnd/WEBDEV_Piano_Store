@@ -78,7 +78,7 @@ p {
 
 #Barre_de_selection{
   margin: 0 auto;
-  margin-top: calc(27vh); /* à  ajouter à cause de la barre de menu qui 
+  margin-top: calc(28vh); /* à  ajouter à cause de la barre de menu qui 
   suit l'utilisateur */
   max-width: 800px; /* Limite la largeur maximale du conteneur */
   display: flex; /* pour avoir les différentes choses que l'on peut choisir dans la barre de sélection qui 
@@ -155,8 +155,12 @@ p {
   max-width: 100%; 
   max-height: 300px;
   margin: auto;
+  transition: transform 0.3s ease; /* Ajoute une transition pour l'effet de transformation */
 }
 
+.piano img:hover {
+  transform: scale(1.05); /* Agrandit l'image de 5% lorsqu'elle est survolée */
+}
 
 img {
   border-radius: 30px;

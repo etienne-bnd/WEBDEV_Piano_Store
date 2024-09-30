@@ -147,7 +147,15 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
           var imageElement = document.createElement("img");
           imageElement.src = piano.photo_site;
           imageElement.alt = "Photo du piano à louer";
+          if (piano.photos){
+            var linkElement = document.createElement("a");
+            linkElement.href = piano.photos; // Lien vers lequel l'image doit rediriger
+            linkElement.appendChild(imageElement);
+            imageContainer.appendChild(linkElement);
+          } 
+          else {
           imageContainer.appendChild(imageElement); // Ajouter l'image dans le conteneur
+          }
           corpscase.appendChild(imageContainer); // Ajouter le conteneur dans l'élément piano
         }
 
