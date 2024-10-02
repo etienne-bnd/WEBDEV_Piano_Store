@@ -207,10 +207,12 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
     container.appendChild(pianoElement);
     }
   });
+  document.body.style.background = "linear-gradient(-45deg, #3E2723, #654321)";
   var gifElement = document.getElementById('chargement');
+
   gifElement.classList.add('hidden'); 
   // Ajoute la classe .hidden pour masquer en douceur
-  gifElement.style.display = 'none'; // Masque l'élément GIF après un délai de 2 secondes
+  gifElement.style.display = 'none'; // Masque l'élément GIF 
 }
 
 
