@@ -164,12 +164,15 @@ p {
 
 img, iframe{
   border-radius: 30px;
-  margin: 10px;
+  margin: 20px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 iframe{
+  flex: 1;
   max-width: 100%; 
+  border: 5px solid #8B4513 !important;
+  height: auto; /* Ajuste la hauteur de manière flexible */
 }
 .social-icons {
   display: flex;
@@ -340,16 +343,16 @@ header a:active {
 
 }
 
-
+/* c'est celui pour ordinateur */
 .conteneur-texte {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  align-items: stretch;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
   border: 5px solid #8B4513;
   width: 80%;
-  border-radius: 15px;
+  border-radius: 30px;
   padding: 20px;
   margin: 20px;
   background:#D2B48C;
@@ -362,13 +365,67 @@ header a:active {
   text-align: left;
 }
 
+
+/* retrouver où ça ça sert pour voir s'il y a besoin de supprimer ou pas */
 .text {
   justify-content: space-around;
 }
 
+.paragraphe{
+  flex: 1;
+  background: #654321;
+  position: relative;
+  display: inline-block;
+  border: 5px solid #8B4513;
+  height: auto;
+  border-radius: 30px;
+  padding: 20px;
+  padding-top: 10px;
+  margin: 20px;
+  text-align: left; /* a gauche pour le numéro */
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white; /* Définit la couleur de la police à blanche */
+}
+  /* 5px de décalage horizontal, 5px de décalage vertical, flou de 10px, couleur de l'ombre avec une opacité de 0.5 */    
+.paragraphe a{
+  text-decoration: none; /* Supprime le soulignement */
+  color: inherit; /* Utilise la couleur du texte par défaut du parent */
+}
+.paragraphe a.gauche {
+  margin-left: auto; /* Force le lien à se placer à droite, cela peut ne pas fonctionner selon le contexte de votre flexbox */
+}
+
 /* A voir s'il faut l'enlever déjà un truc dans le select */
+.paragraphe a, .paragraphe i {
+  display: inline-block; /* Rend les liens transformables */  
+  transition: transform 0.3s ease; /* Transition pour un effet fluide */
+}
 
 
+.paragraphe a:hover{
+  transform: scale(1.1);
+}
+
+.paragraphe i:hover {
+  transform: scale(1.4); /* Agrandit de 20% lors du survol */
+}
+.paragraphe p {
+  display: flex;
+  align-items: center; /* Aligne verticalement les éléments */
+  justify-content: space-between; /* Place les éléments à gauche et à droite */
+}
+.paragraphe strong {
+  margin-left: 10px; /* Espacement entre l'icône et le texte de l'étiquette */
+}
+
+paragraphe i {
+  margin-right: 10px; /* Espace entre l'icône et le texte */
+  font-size: 40em !important; /* Ajustez cette valeur pour agrandir les icônes */
+}
+
+.paragraphe h2 {
+  font-family: "Orbitron", sans-serif;
+}
 /* Ajouter un style pour la flèche du menu déroulant */
 #colorPicker::-ms-expand {
   display: none; /* Masquer la flèche pour Internet Explorer */
@@ -404,7 +461,6 @@ select:focus {
     flex-direction: column;   /* Aligne les éléments verticalement */
     align-items: center;      /* Centre les éléments horizontalement (facultatif) */
     justify-content: flex-start; /* Aligne les éléments en haut du conteneur */
-  
 
   }
   .toucheb {

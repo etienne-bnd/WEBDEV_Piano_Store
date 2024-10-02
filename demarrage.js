@@ -141,7 +141,7 @@ function playPianoNote(frequency) {
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
 
-    gainNode.gain.setValueAtTime(0.005, audioContext.currentTime); // Volume initial
+    gainNode.gain.setValueAtTime(0.015, audioContext.currentTime); // Volume initial
     gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 1.5); // Réduction progressive
 
     oscillator.start();
