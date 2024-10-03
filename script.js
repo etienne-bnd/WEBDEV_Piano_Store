@@ -8,7 +8,8 @@ async function fetchData() {
 
 
     // Récupérer les données JSON
-    const res = await fetch("https://script.google.com/macros/s/AKfycbye1vWjELtjX_bSMe1gseGYPZuEzTBaymvwS26p-7D2D3p2sGiiUM9UioEBopQ6HCGXKA/exec");
+    const res = await fetch("https://script.google.com/macros/s/AKfycbx98e2dDyLYJnmJjEa3uC1A1qWt6bi4FROxviRPikXA30PHPBIWrP4E-syifuUgbMhGQw/exec");
+    console.log("nouveau test avec un nouvel app script")
     // le lien est à changer si on change le déployement de l'app script
     const json = await res.json();
     return json.data; // Accéder à la propriété 'data'
