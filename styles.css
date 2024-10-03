@@ -180,12 +180,16 @@ iframe{
 .social-icons {
   display: flex;
   flex: 1;
+  width: 50%;
   justify-content: center; /* Centre les icônes horizontalement */
   margin-top: 20px; /* Espace au-dessus des icônes */
+  background-color: #FFF;
+  border: 2px solid #000;
+  border-radius: 5px;
 }
 
 .social-icons a {
-  margin: 0 10px; /* Espace entre les icônes */
+  margin: 10px; /* Espace entre les icônes */
   color: #000; /* Couleur des icônes */
   text-decoration: none; /* Supprime le soulignement des liens */
 }
