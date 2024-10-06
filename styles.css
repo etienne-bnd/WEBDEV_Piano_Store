@@ -231,6 +231,17 @@ select{
   justify-content: center; /* Centre horizontalement */
   flex: 2; /* Permet aux éléments d'occuper le même espace horizontalement */
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 .lien_photo:hover, .bouton:hover, select:hover{
     background-color: #D2B48C; /* Marron plus clair au survol */
     color: #000; /* Texte noir au survol */
