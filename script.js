@@ -58,7 +58,7 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
 
 
           var imageElement = document.createElement("img");
-          imageElement.src = piano.photo_site;
+          imageElement.src = piano.photo_site + "=w200";
           imageElement.alt = "Photo du piano à louer";
           imageElement.classList.add("lazy"); // Ajoutez une classe pour le lazy loading
           
