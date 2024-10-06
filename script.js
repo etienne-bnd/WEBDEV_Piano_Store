@@ -65,7 +65,7 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
 
           // Ajouter l'attribut sizes et srcset
           imageElement.sizes = "100vw"; // Définit la taille de l'image à 100% de la largeur de la fenêtre
-          imageElement.srcset = "image-small.jpg 600w, image-medium.jpg 1200w, image-large.jpg 1800w"; // Exemples de srcset
+          // imageElement.srcset = "image-small.jpg 600w, image-medium.jpg 1200w, image-large.jpg 1800w"; // Exemples de srcset
 
           if (piano.photos){
             var linkElement = document.createElement("a");
