@@ -15,105 +15,18 @@ async function fetchData() {
   }
 
 var pianofirst = fetchData();
-// plus forcément utile maintenant qu'il y en a une avec des conditions
-// async function afficherPianos() {
-//   const pianosData = await fetchData();
-//   var container = document.getElementById("pianos-container");
-//   // on récupère l'élément piano-container du code html
-//   container.innerHTML = ``;// Vider tout le contenu HTML de la division
 
-//   // on créer pour chaque case ce qu'il faut 
-//   pianosData.forEach(function(piano) {
-//     // Vérifier si la ligne d'information est vide  
-//     if ((!piano.dispo) && (piano.numero || piano.marque || piano.couleur|| piano.prix || piano.prixloc || piano.photo_site || piano.photos || piano.descriptif)) {
-//       // si le piano est dispo et qu'au moins une case est remplie
-//       var corpscase = document.createElement("div");
-//       // on créer une nouvelle division
-//       corpscase.classList.add("piano");
-//         // on lui ajoute la classe piano
-//         corpscase.innerHTML = ``;
-//         if (piano.numero) {
-//         corpscase.innerHTML += `
-//           <h4 id='piano_num'>${piano.numero}</h4>
-//                     `;
-//         }
-//         if (piano.marque) {
-//         corpscase.innerHTML += `
-//           <h3>Piano ${piano.marque}</h3>
-//                               `;
-//         }
-//         if (piano.photo_site) {
-//           var imageContainer = document.createElement("div"); // Créer un conteneur pour l'image
-//           imageContainer.classList.add("image-container");
-
-
-//           var imageElement = document.createElement("img");
-//           imageElement.src = piano.photo_site;
-//           imageElement.alt = "Photo du piano à louer";
-//           imageContainer.appendChild(imageElement); // Ajouter l'image dans le conteneur
-//           corpscase.appendChild(imageContainer); // Ajouter le conteneur dans l'élément piano
-//         }
-
-//         if (piano.prix) {
-//         corpscase.innerHTML += `
-//           <p>Piano à vendre: <span class='bold-text'>${piano.prix}</span></p>
-//           `;
-//         }
-//         if (piano.prixloc) {
-//                 corpscase.innerHTML += `
-//           <p>Prix de location: <span class='bold-text'> ${piano.prixloc}</span></p>
-//           `;
-//         }
-        
-//         if (piano.couleur) {
-//           corpscase.innerHTML += `
-//           <p>Couleur: <span class='bold-text'>${piano.couleur}</span></p>
-//           `;
-//         }
-//         if (piano.profondeur && piano.largeur)
-//           {
-//             if (piano.hauteur) {
-//               corpscase.innerHTML += `          
-//               <p>Dimensions: <span class='bold-text'>${piano.hauteur}</span>x<span class='bold-text'>${piano.profondeur}</span>x<span class='bold-text'>${piano.largeur} cm </span></p>
-//             `;
-//             }
-//             else {
-//               corpscase.innerHTML += ` 
-//               <p>Dimensions: <span class='bold-text'>${piano.profondeur}</span>x<span class='bold-text'>${piano.largeur} cm </span></p>
-//             `;
-//             }
-//           }
-//         if (piano.photos) {
-//           var linkElement = document.createElement("a");
-//           linkElement.href = piano.photos;
-//           linkElement.textContent = "plus de photos du piano";
-//           linkElement.textContent = "plus de photos du piano";
-//           linkElement.classList.add("lien_photo"); // Ajout de la classe "lien_photo"
-//           var paragraphElement = document.createElement("p");
-//           paragraphElement.appendChild(linkElement);
-//           corpscase.appendChild(paragraphElement);
-//         }
-      
-//         if (piano.descriptif) {
-
-//           corpscase.innerHTML+= `
-//           <p>${piano.descriptif}</p>
-//           `;
-//         }
-//     container.appendChild(corpscase);
-//     }
-//   });
-//   var gifElement = document.getElementById('chargement');
-//   gifElement.classList.add('hidden'); 
-//   // Ajoute la classe .hidden pour masquer en douceur
-//   gifElement.style.display = 'none'; // Masque l'élément GIF après un délai de 2 secondes
-// }
 
 async function afficherPianosConditions(couleurselectionne="TOUT", marqueselectionne="TOUT") {
   let pianosData = await pianofirst;
   var container = document.getElementById("pianos-container");
+  if (!container) {
+    console.error("L'élément 'pianos-container' n'existe pas !");
+    return; // Sortir de la fonction si le conteneur n'existe pas<
+  }
   // on récupère l'élément piano-container du code html
   container.innerHTML = ``;// Vider tout le contenu HTML de la division 
+  // c'est ici que le gif de chargement est supprimé
   // on créer pour chaque case ce qu'il faut 
   pianosData.forEach(function(piano) {
     // Vérifier si la ligne d'information est vide  
@@ -147,6 +60,7 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
           var imageElement = document.createElement("img");
           imageElement.src = piano.photo_site;
           imageElement.alt = "Photo du piano à louer";
+          imageElement.classList.add("lazy"); // Ajoutez une classe pour le lazy loading
           if (piano.photos){
             var linkElement = document.createElement("a");
             linkElement.href = piano.photos; // Lien vers lequel l'image doit rediriger
@@ -207,17 +121,11 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
     container.appendChild(pianoElement);
     }
   });
-  document.body.style.background = "linear-gradient(-45deg, #3E2723, #654321)";
-  var gifElement = document.getElementById('chargement');
-
-  gifElement.classList.add('hidden'); 
-  // Ajoute la classe .hidden pour masquer en douceur
-  gifElement.style.display = 'none'; // Masque l'élément GIF 
+  document.body.style.background = "linear-gradient(-45deg, #3E2723, #654321)"; 
 }
 
 
-  // Appeler la fonction pour afficher les pianos au chargement de la page
-// afficherPianos();
+ // Appeler la fonction pour afficher les pianos au chargement de la page
 afficherPianosConditions();
 
 
