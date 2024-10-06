@@ -61,6 +61,12 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
           imageElement.src = piano.photo_site;
           imageElement.alt = "Photo du piano à louer";
           imageElement.classList.add("lazy"); // Ajoutez une classe pour le lazy loading
+          
+
+          // Ajouter l'attribut sizes et srcset
+          imageElement.sizes = "100vw"; // Définit la taille de l'image à 100% de la largeur de la fenêtre
+          imageElement.srcset = "image-small.jpg 600w, image-medium.jpg 1200w, image-large.jpg 1800w"; // Exemples de srcset
+
           if (piano.photos){
             var linkElement = document.createElement("a");
             linkElement.href = piano.photos; // Lien vers lequel l'image doit rediriger
