@@ -6,25 +6,33 @@ async function fetchData() {
   pianoContainer.innerHTML = htmlContent;
   // Afficher le chargement
 
-
-    try {
-      // Récupérer les données JSON
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec");
-      
-      // Vérifier si la requête a réussi (status 200-299)
-      if (!response.ok) {
-          throw new Error("Erreur HTTP ! Status: " + response.status);
-      }
-
-      const json = await response.json(); // Récupérer les données JSON
-      
-      // Traiter les données
-      console.log(json.data);
-      return json.data;
-    } catch (error) {
-      // Gérer les erreurs réseau ou HTTP
-      console.error("Il y a eu un problème avec la requête fetch : ", error);
+  try {
+    // Récupérer les données JSON
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec");
+    
+    // Vérifier si la requête a réussi (status 200-299)
+    if (!response.ok) {
+        const errorMessage = `Erreur HTTP ! Status: ${response.status} - ${response.statusText}`;
+        throw new Error(errorMessage);
     }
+
+    const json = await response.json(); // Récupérer les données JSON
+    
+    // Traiter les données
+    console.log(json.data);
+    return json.data;
+} catch (error) {
+    // Gérer les erreurs réseau ou HTTP
+    console.error("Il y a eu un problème avec la requête fetch : ", error.message);
+
+    // Si l'erreur provient d'un problème réseau, vous pouvez également ajouter une condition
+    if (error instanceof TypeError) {
+        console.error("Cela pourrait être dû à un problème de réseau ou à une URL incorrecte.");
+    } else {
+        console.error("Détails de l'erreur :", error);
+    }
+}
+
   }
 
 var pianofirst = fetchData();
