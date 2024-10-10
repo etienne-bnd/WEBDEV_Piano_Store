@@ -26,7 +26,7 @@ async function fetchData() {
     return json.data;
 } catch (error) {
     // Gérer les erreurs réseau ou HTTP
-    console.error("Il y a eu un problème avec la requête fetch : ", error.message);
+    console.error("Il y a eu un problème avec la requête fetch : ", error.message, error);
 
     // Si l'erreur provient d'un problème réseau, vous pouvez également ajouter une condition
     if (error instanceof TypeError) {
