@@ -1,4 +1,4 @@
-function async fetchData() {
+async function fetchData() {
   const pianoContainer = document.getElementById('pianos-container');
   const htmlContent = `
   <img id="chargement" src="main_chargement.gif" alt="Chargement..." />
@@ -30,7 +30,7 @@ function async fetchData() {
 var pianofirst = fetchData();
 
 
-function async afficherPianosConditions(couleurselectionne="TOUT", marqueselectionne="TOUT") {
+async function afficherPianosConditions(couleurselectionne="TOUT", marqueselectionne="TOUT") {
   let pianosData = await pianofirst;
   var container = document.getElementById("pianos-container");
   if (!container) {
