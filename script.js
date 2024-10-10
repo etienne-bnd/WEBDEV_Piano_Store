@@ -13,7 +13,10 @@ async function fetchData() {
     // Vérifier si la requête a réussi (status 200-299)
     if (!response.ok) {
         const errorMessage = `Erreur HTTP ! Status: ${response.status} - ${response.statusText}`;
+        console.log(response.status);
+        console.log(response.statusText);
         throw new Error(errorMessage);
+
     }
 
     const json = await response.json(); // Récupérer les données JSON
