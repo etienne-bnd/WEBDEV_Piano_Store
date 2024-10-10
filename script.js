@@ -1,36 +1,39 @@
-async function fetchData() {
-    const pianoContainer = document.getElementById('pianos-container');
-    const htmlContent = `
-    <img id="chargement" src="main_chargement.gif" alt="Chargement..." />
-    `;
-    pianoContainer.innerHTML = htmlContent;
-    //on affiche le chargement
+function fetchData() {
+  const pianoContainer = document.getElementById('pianos-container');
+  const htmlContent = `
+  <img id="chargement" src="main_chargement.gif" alt="Chargement..." />
+  `;
+  pianoContainer.innerHTML = htmlContent;
+  // Afficher le chargement
 
+  // Récupérer les données JSON avec fetch et then
+  fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec")
+      .then(response => {
+          // Vérifier si la requête a réussi
+          if (!response.ok) {
+              throw new Error("Erreur HTTP ! Status: " + response.status);
+          }
+          return response.json(); // Récupérer les données JSON
+      })
+      .then(json => {
+          const data = json.data; // Extraire les données
+          console.log(data); // Afficher les données dans la console
+          console.log("on passe une fois dans la fonction fetch")
 
-    try {
-      // Récupérer les données JSON
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec");
-      
-      // Vérifier si la requête a réussi (status 200-299)
-      if (!response.ok) {
-          throw new Error("Erreur HTTP ! Status: " + response.status);
-      }
-
-      const json = await response.json(); // Récupérer les données JSON
-      
-      // Traiter les données
-      return json.data;
-    } catch (error) {
-      // Gérer les erreurs réseau ou HTTP
-      console.error("Il y a eu un problème avec la requête fetch : ", error);
-    }
-  }
+          // Retourner les données pour utilisation future
+          return data;
+      })
+      .catch(error => {
+          // Gérer les erreurs réseau ou HTTP
+          console.error("Il y a eu un problème avec la requête fetch : ", error);
+      });
+}
 
 var pianofirst = fetchData();
 
 
-async function afficherPianosConditions(couleurselectionne="TOUT", marqueselectionne="TOUT") {
-  let pianosData = await pianofirst;
+function afficherPianosConditions(couleurselectionne="TOUT", marqueselectionne="TOUT") {
+  let pianosData = pianofirst;
   var container = document.getElementById("pianos-container");
   if (!container) {
     console.error("L'élément 'pianos-container' n'existe pas !");
