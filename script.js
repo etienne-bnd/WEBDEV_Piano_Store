@@ -7,11 +7,23 @@ async function fetchData() {
     //on affiche le chargement
 
 
-    // Récupérer les données JSON
-    const res = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec");
-    console.log("nouvel essai")
-    const json = await res.json();
-    return json.data; // Accéder à la propriété 'data'
+    try {
+      // Récupérer les données JSON
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec");
+      
+      // Vérifier si la requête a réussi (status 200-299)
+      if (!response.ok) {
+          throw new Error("Erreur HTTP ! Status: " + response.status);
+      }
+
+      const json = await response.json(); // Récupérer les données JSON
+      
+      // Traiter les données
+      return json.data;
+    } catch (error) {
+      // Gérer les erreurs réseau ou HTTP
+      console.error("Il y a eu un problème avec la requête fetch : ", error);
+    }
   }
 
 var pianofirst = fetchData();
@@ -131,11 +143,45 @@ async function afficherPianosConditions(couleurselectionne="TOUT", marqueselecti
 }
 
 
- // Appeler la fonction pour afficher les pianos au chargement de la page
+
+async function creation_bouton_marque() {
+  // Attendre la résolution de la promesse pianofirst (si elle n'est pas déjà résolue)
+  let pianosData = await pianofirst; 
+  var listing = document.getElementById("MarquePicker");
+  // Créer une liste pour stocker les marques de pianos
+  let marques = [];
+
+  // Parcourir tous les pianos
+  pianosData.forEach(function(piano) {
+      // Vérifier si la marque du piano existe et n'est pas déjà dans la liste
+      if (piano.marque && !marques.includes(piano.marque) && (!piano.dispo)) {
+          // Ajouter la marque à la liste si elle n'est pas déjà présente
+          marques.push(piano.marque);
+          listing.innerHTML+=` <option value="${piano.marque}">${piano.marque}</option>`;
+      }
+  });
+}
+async function creation_bouton_couleur() {
+  // Attendre la résolution de la promesse pianofirst (si elle n'est pas déjà résolue)
+  let pianosData = await pianofirst; 
+  var listing = document.getElementById("colorPicker");
+  // Créer une liste pour stocker les marques de pianos
+  let couleurs = [];
+
+  // Parcourir tous les pianos
+  pianosData.forEach(function(piano) {
+      // Vérifier si la marque du piano existe et n'est pas déjà dans la liste
+      if (piano.couleur && !couleurs.includes(piano.couleur) && !piano.dispo) {
+          // Ajouter la marque à la liste si elle n'est pas déjà présente
+          couleurs.push(piano.couleur);
+          listing.innerHTML+=` <option value="${piano.couleur}">${piano.couleur}</option>`;
+      }
+  });
+}
 afficherPianosConditions();
-
-
-
+creation_bouton_marque();
+creation_bouton_couleur();
+console.log("la fonction a fonctionné");
 
 
 let couleurselectionne = "TOUT";

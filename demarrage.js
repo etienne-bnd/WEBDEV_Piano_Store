@@ -86,40 +86,7 @@ function write_header_tel() {
 
     }
 
-async function creation_bouton_marque() {
-    // Attendre la résolution de la promesse pianofirst (si elle n'est pas déjà résolue)
-    let pianosData = await pianofirst; 
-    var listing = document.getElementById("MarquePicker");
-    // Créer une liste pour stocker les marques de pianos
-    let marques = [];
 
-    // Parcourir tous les pianos
-    pianosData.forEach(function(piano) {
-        // Vérifier si la marque du piano existe et n'est pas déjà dans la liste
-        if (piano.marque && !marques.includes(piano.marque) && (!piano.dispo)) {
-            // Ajouter la marque à la liste si elle n'est pas déjà présente
-            marques.push(piano.marque);
-            listing.innerHTML+=` <option value="${piano.marque}">${piano.marque}</option>`;
-        }
-    });
-}
-async function creation_bouton_couleur() {
-    // Attendre la résolution de la promesse pianofirst (si elle n'est pas déjà résolue)
-    let pianosData = await pianofirst; 
-    var listing = document.getElementById("colorPicker");
-    // Créer une liste pour stocker les marques de pianos
-    let couleurs = [];
-
-    // Parcourir tous les pianos
-    pianosData.forEach(function(piano) {
-        // Vérifier si la marque du piano existe et n'est pas déjà dans la liste
-        if (piano.couleur && !couleurs.includes(piano.couleur) && !piano.dispo) {
-            // Ajouter la marque à la liste si elle n'est pas déjà présente
-            couleurs.push(piano.couleur);
-            listing.innerHTML+=` <option value="${piano.couleur}">${piano.couleur}</option>`;
-        }
-    });
-}
 // Vérifier si l'appareil est un téléphone
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     write_header_tel();
@@ -167,6 +134,3 @@ headerLinks.forEach(link => {
         clearTimeout(noteTimeout);
     });
 });
-creation_bouton_marque();
-creation_bouton_couleur();
-console.log("la fonction a fonctionné");
