@@ -8,12 +8,15 @@ async function fetchData() {
 
   try {
     // Récupérer les données JSON
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec");
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec", {
+      method: 'GET', // Méthode de requête
+    });
     
     // Vérifier si la requête a réussi (status 200-299)
     if (!response.ok) {
         const errorMessage = `Erreur HTTP ! Status: ${response.status} - ${response.statusText}`;
         console.error(response.status);
+        // ne sont pas publié du tout ! 
         console.error(response.statusText);
         throw new Error(errorMessage);
 
