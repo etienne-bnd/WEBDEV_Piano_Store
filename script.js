@@ -10,6 +10,11 @@ async function fetchData() {
     // Récupérer les données JSON
     const response = await fetch("https://script.google.com/macros/s/AKfycbzQn_XxuJsw8Z8m8P2soyRT-18hPKuJ15uurpfohI-i3mtZCQZ6-YYcPJ5sKhWpb-g-4A/exec", {
       method: 'GET', // Méthode de requête
+            headers: {
+        'Accept': 'application/json' // En-tête standard
+        // Pas d'en-têtes personnalisés
+      }
+
     });
     
     // Vérifier si la requête a réussi (status 200-299)
