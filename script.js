@@ -19,6 +19,7 @@ async function fetchData() {
       const json = await response.json(); // Récupérer les données JSON
       
       // Traiter les données
+      console.log(json.data);
       return json.data;
     } catch (error) {
       // Gérer les erreurs réseau ou HTTP
