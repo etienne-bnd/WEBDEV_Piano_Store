@@ -8,7 +8,8 @@ async function fetchData() {
 
   try {
     // Récupérer les données JSON
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyqZLLCuWMmWbCJrr6HZnK0KkyOKjOzvPgF81nIyhiJwposswC8KsJYw7svx-66FwMW/exec");
+    const response = await fetch("https://script.google.com/macros/s/AKfycbyqZLLCuWMmWbCJrr6HZnK0KkyOKjOzvPgF81nIyhiJwposswC8KsJYw7svx-66FwMW/exec");}
+  
     
     // Vérifier si la requête a réussi (status 200-299)
     if (!response.ok) {
