@@ -9,7 +9,7 @@ async function fetchData() {
   try {
     // Récupérer les données JSON
     const response = await fetch("https://script.google.com/macros/s/AKfycbyqZLLCuWMmWbCJrr6HZnK0KkyOKjOzvPgF81nIyhiJwposswC8KsJYw7svx-66FwMW/exec");
-  }
+  
     console.log("test n1");
   
     
@@ -22,6 +22,7 @@ async function fetchData() {
         throw new Error(errorMessage);
 
     }
+  }
 
     const json = await response.json(); // Récupérer les données JSON
     
