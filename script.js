@@ -12,9 +12,6 @@ async function fetchData() {
     return json.data;
     }
 
-
-console.log("test 2")
-
 var pianofirst = fetchData();
 
 
