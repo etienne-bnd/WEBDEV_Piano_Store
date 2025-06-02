@@ -23,7 +23,7 @@ async function fetchData() {
     console.log(json.data);
     return json.data;
 
-  } catch (error) {
+   catch (error) {
     // Gérer les erreurs réseau ou HTTP
     console.error("Il y a eu un problème avec la requête fetch : ", error.message, error);
 
@@ -34,6 +34,7 @@ async function fetchData() {
     }
 
     return null; // Retourne quelque chose même en cas d’erreur
+    }
   }
 }
 
