@@ -1,3 +1,6 @@
+
+console.log("test 3")
+
 async function fetchData() {
   const pianoContainer = document.getElementById('pianos-container');
   const htmlContent = `
@@ -12,8 +15,6 @@ async function fetchData() {
     return json.data;
     }
 
-
-console.log("test 3")
 
 var pianofirst = fetchData();
 
