@@ -5,38 +5,13 @@ async function fetchData() {
   `;
   pianoContainer.innerHTML = htmlContent;
 
-  try {
     // Récupérer les données JSON
     const response = await fetch("https://script.google.com/macros/s/AKfycbyqZLLCuWMmWbCJrr6HZnK0KkyOKjOzvPgF81nIyhiJwposswC8KsJYw7svx-66FwMW/exec");
 
     console.log("test n1");
-
-    // Vérifier si la requête a réussi (status 200-299)
-    if (!response.ok) {
-      const errorMessage = `Erreur HTTP ! Status: ${response.status} - ${response.statusText}`;
-      console.error(response.status);
-      console.error(response.statusText);
-      throw new Error(errorMessage);
-    }
-
     const json = await response.json(); // Cette ligne doit être dans le bloc `try`
-    console.log(json.data);
     return json.data;
-
-   catch (error) {
-    // Gérer les erreurs réseau ou HTTP
-    console.error("Il y a eu un problème avec la requête fetch : ", error.message, error);
-
-    if (error instanceof TypeError) {
-      console.error("Cela pourrait être dû à un problème de réseau ou à une URL incorrecte.");
-    } else {
-      console.error("Détails de l'erreur :", error);
     }
-
-    return null; // Retourne quelque chose même en cas d’erreur
-    }
-  }
-}
 
 
 var pianofirst = fetchData();
