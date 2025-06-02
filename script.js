@@ -11,6 +11,8 @@ async function fetchData() {
     const json = await response.json(); // Cette ligne doit être dans le bloc `try`
     return json.data;
     }
+
+
 console.log("test 2")
 
 var pianofirst = fetchData();
