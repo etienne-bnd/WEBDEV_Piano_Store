@@ -1,0 +1,29 @@
+# Nom de votre workflow, visible dans l'onglet "Actions" de GitHub
+name: Mettre à jour la liste des pianos
+
+on:
+  # Déclencheur : ceci s'exécute tous les dimanches à 02:00 UTC
+  schedule:
+    - cron: '0 2 * * 0'
+  # Permet aussi de le lancer manuellement depuis l'onglet Actions
+  workflow_dispatch:
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest # Utilise une machine virtuelle Linux
+    steps:
+      # 1. Récupère le code de votre dépôt
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      # 2. Appelle votre API et sauvegarde le résultat dans pianos.json
+      - name: Fetch des données depuis Google Script
+        run: |
+          curl -L "https://script.google.com/macros/s/AKfycbyqZLLCuWMmWbCJrr6HZnK0KkyOKjOzvPgF81nIyhiJwposswC8KsJYw7svx-66FwMW/exec" > pianos.json
+      
+      # 3. Fait un commit et un push si le fichier a changé
+      - name: Commit et Push des modifications
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Mise à jour automatique de pianos.json"
+          file_pattern: pianos.json
