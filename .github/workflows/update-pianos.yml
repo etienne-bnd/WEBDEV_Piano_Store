@@ -11,6 +11,8 @@ on:
 jobs:
   update-json:
     runs-on: ubuntu-latest # Utilise une machine virtuelle Linux
+    permissions:
+      contents: write
     steps:
       # 1. Récupère le code de votre dépôt
       - name: Checkout du dépôt
